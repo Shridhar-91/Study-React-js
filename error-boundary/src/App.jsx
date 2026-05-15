@@ -1,17 +1,11 @@
-import {useState, lazy, Suspense } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
-
-const Profile = lazy(() => new Promise(() =>{
-  setTimeout(() =>{
-    import("./controller/Profile");
-  }, 3000)
-}));
+import MyErrorBoundary from ".//ErrorBoundary";
+import UserController from "./controller/UserController";
 
 function App() {
-  const [show, setShow] = useState(false);
-``
+
   return (
     <>
       <div>
@@ -23,17 +17,11 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <MyErrorBoundary>
+        <UserController />
+      </MyErrorBoundary>
 
-      <div className="center-btn">
-        <button onClick={() => setShow(true)}> 
-          Show profile....
-        </button>
-      </div>
-      {show && (
-      <Suspense fallback = {<div>Loading Profile...</div>}>
-        <Profile/>
-      </Suspense>
-      )}
+
     </>
   )
 }
