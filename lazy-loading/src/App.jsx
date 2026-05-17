@@ -3,10 +3,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 
-const Profile = lazy(() => new Promise(() =>{
-  setTimeout(() =>{
-    import("./controller/Profile");
-  }, 3000)
+const Profile = lazy (() => new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(import("./controller/Profile"));
+  }, 3000);
 }));
 
 function App() {
