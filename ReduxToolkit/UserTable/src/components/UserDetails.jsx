@@ -8,8 +8,9 @@ import { addUser } from '../store/slices/UserSlice';
 const UserDetails = () => {
   const dispatch = useDispatch();
   const addNewUser = (name) => {
-    dispatch(addUser(name));
     console.log(name);
+    dispatch(addUser(name));
+    
   };
   return (
     <Wrapper>
